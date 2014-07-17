@@ -1,0 +1,7 @@
+name: json2csv
+version: 1.0.0
+description: JSON to CSV Library
+authors:
+- Kenneth Endfinger <k.endfinger@dglogik.com>
+homepage: https://github.com/dglogik/JSON-to-CSV
+
