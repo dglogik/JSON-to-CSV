@@ -7,9 +7,40 @@ class JSON2CSV {
   
   CSV take(String json_data) {
     var json = JSON.decode(json_data);
-    var flattened = JSONFlattener.flatten(json);
-    print(flattened);
-    return null;
+    var outRows = [];
+    var inList = _listFrom(json);
+    var firstRow = new Row();
+    for (var row in inList) {
+      var it = new Row();
+      var obj = JSONFlattener.flatten(row);
+      for (var key in obj.keys) {
+        if (!firstRow.values.contains(key)) {
+          firstRow.values.add(key);
+        }
+      }
+      it.values.addAll(obj.values);
+      outRows.add(it);
+    }
+    var csv = new CSV();
+    csv.add(firstRow);
+    outRows.forEach(csv.add);
+    return csv;
+  }
+  
+  static List<dynamic> _listFrom(input, [key]) {
+    if (input is List) {
+      return input;
+    } else if (key != null) {
+      return input[key];
+    } else {
+      for (var key in input.keys) {
+        if (input[key] is List) {
+          return input[key];
+        }
+      }
+      
+      return [input];
+    }
   }
 }
 
@@ -34,6 +65,10 @@ class JSONFlattener {
       return out;
     } else if (scalar) {
       var out = {};
+      // Single Scalar
+      if (path == "") {
+        path = "value/";
+      }
       var endPath = path.substring(0, path.length - 1);
       out[endPath] = input;
       return out;
