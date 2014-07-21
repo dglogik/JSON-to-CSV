@@ -1,4 +1,4 @@
-part of json2csv;
+ part of json2csv;
 
 class JSON2CSV {
   CSV csv;
@@ -18,7 +18,7 @@ class JSON2CSV {
           firstRow.values.add(key);
         }
       }
-      it.values.addAll(obj.values);
+      it.values.addAll(obj.values.map((value) => value.toString()));
       outRows.add(it);
     }
     var csv = new CSV();
