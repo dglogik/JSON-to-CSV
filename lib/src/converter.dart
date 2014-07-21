@@ -22,8 +22,8 @@ class JSON2CSV {
       outRows.add(it);
     }
     var csv = new CSV();
-    csv.add(firstRow);
-    outRows.forEach(csv.add);
+    csv.append(firstRow);
+    outRows.forEach(csv.append);
     return csv;
   }
   
