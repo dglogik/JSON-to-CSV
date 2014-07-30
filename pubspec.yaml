@@ -5,5 +5,6 @@ authors:
 - Kenneth Endfinger <k.endfinger@dglogik.com>
 homepage: https://github.com/dglogik/JSON-to-CSV
 dev_dependencies:
-  yaml: 2.0.0
-  hop: 0.31.0+1
+  hop: ">=0.31.0+1 <0.32.0"
+  unittest: ">=0.11.0+3 <0.12.0"
+  yaml: ">=2.0.0 <3.0.0"

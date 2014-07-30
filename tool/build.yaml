@@ -1,0 +1,7 @@
+analyzer.files: 
+  - lib/json2csv.dart
+check.tasks: 
+  - analyze
+  - test
+docs.output: out/docs
+test.file: test/all_tests.dart
