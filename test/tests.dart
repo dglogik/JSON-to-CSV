@@ -1,8 +1,5 @@
 import 'package:json2csv/json2csv.dart';
 
-import 'dart:io';
-import 'dart:convert' show JSON;
-
 import 'package:unittest/unittest.dart';
 
 void main() {

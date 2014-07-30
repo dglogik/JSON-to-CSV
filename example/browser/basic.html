@@ -7,18 +7,29 @@
     <title>JSON to CSV</title>
     
     <style>
+      .line {
+        border-bottom: 1px solid #ddd;
+      }
+    
       .wide {
-        width: 100%;
+        width: 99%;
       }
     </style>
   </head>
  
   <body>
-    <textarea class="wide prettyprint lang-json" id="json"></textarea>
-    <textarea class="wide prettyprint lang-csv" id="csv"></textarea>
+    <h1>JSON to CSV Converter</h1>
+    <p class="line"></p>
+    
+    <h2>JSON</h2>
+    <pre contenteditable="true" class="wide" id="json"></pre>
+    
+    <p></p>
+    
+    <h2>CSV</h2>
+    <pre class="wide" id="csv"></pre>
   
     <script type="application/dart" src="basic.dart"></script>
     <script src="packages/browser/dart.js"></script>
-    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
   </body>
 </html>
