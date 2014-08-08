@@ -1,4 +1,4 @@
-import 'package:json2csv/json2csv.dart';
+import 'package:json2csv/json2csv.dart' as JSON2CSV;
 
 import 'package:unittest/unittest.dart';
 
@@ -20,7 +20,7 @@ void main() {
       }
       """;
       
-      var csv = converter.take(input);
+      var csv = JSON2CSV.convert(input);
       var rows = csv.rows;
       expect(rows.length, equals(3), reason: "there should be 3 rows");
       expect(rows[0].values.length, equals(2), reason: "there should be 2 columns in the first row");
@@ -33,5 +33,3 @@ void main() {
     });
   });
 }
-
-JSON2CSV get converter => new JSON2CSV();

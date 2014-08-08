@@ -1,46 +1,39 @@
- part of json2csv;
+part of json2csv;
 
-class JSON2CSV {
-  Table csv;
-  
-  JSON2CSV() : csv = new Table();
-  
-  Table take(String json_data) {
-    var json = JSON.decode(json_data);
-    var outRows = [];
-    var inList = _listFrom(json);
-    var firstRow = new Row();
-    for (var row in inList) {
-      var it = new Row();
-      var obj = JSONFlattener.flatten(row);
-      for (var key in obj.keys) {
-        if (!firstRow.values.contains(key)) {
-          firstRow.values.add(key);
-        }
+Table convert(input) {
+  var outRows = [];
+  var inList = _listFrom(input is String ? JSON.decode(input) : input);
+  var firstRow = new Row();
+  for (var row in inList) {
+    var it = new Row();
+    var obj = JSONFlattener.flatten(row);
+    for (var key in obj.keys) {
+      if (!firstRow.values.contains(key)) {
+        firstRow.values.add(key);
       }
-      it.values.addAll(obj.values.map((value) => value.toString()));
-      outRows.add(it);
     }
-    var csv = new Table();
-    csv.append(firstRow);
-    outRows.forEach(csv.append);
-    return csv;
+    it.values.addAll(obj.values.map((value) => value.toString()));
+    outRows.add(it);
   }
-  
-  static List<dynamic> _listFrom(input, [key]) {
-    if (input is List) {
-      return input;
-    } else if (key != null) {
-      return input[key];
-    } else {
-      for (var key in input.keys) {
-        if (input[key] is List) {
-          return input[key];
-        }
+  var table = new Table();
+  table.append(firstRow);
+  outRows.forEach(table.append);
+  return table;
+}
+
+List<dynamic> _listFrom(input, [key]) {
+  if (input is List) {
+    return input;
+  } else if (key != null) {
+    return input[key];
+  } else {
+    for (var key in input.keys) {
+      if (input[key] is List) {
+        return input[key];
       }
-      
-      return [input];
     }
+    
+    return [input];
   }
 }
 

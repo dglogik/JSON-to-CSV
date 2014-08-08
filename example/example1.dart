@@ -1,10 +1,9 @@
-import "package:json2csv/json2csv.dart";
+import "package:json2csv/json2csv.dart" as JSON2CSV;
 
 import "dart:io";
 
 void main(List<String> args) {
-  var converter = new JSON2CSV();
   var file = new File("example/input.json");
   var data = file.readAsStringSync();
-  print(converter.take(data));
+  print(JSON2CSV.convert(data));
 }
