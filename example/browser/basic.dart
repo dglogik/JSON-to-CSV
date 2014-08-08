@@ -13,6 +13,6 @@ void main() {
   });
 }
 
-CSV convert(String json) {
+Table convert(String json) {
   return new JSON2CSV().take(json);
 }

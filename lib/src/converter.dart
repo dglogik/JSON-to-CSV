@@ -1,11 +1,11 @@
  part of json2csv;
 
 class JSON2CSV {
-  CSV csv;
+  Table csv;
   
-  JSON2CSV() : csv = new CSV();
+  JSON2CSV() : csv = new Table();
   
-  CSV take(String json_data) {
+  Table take(String json_data) {
     var json = JSON.decode(json_data);
     var outRows = [];
     var inList = _listFrom(json);
@@ -21,7 +21,7 @@ class JSON2CSV {
       it.values.addAll(obj.values.map((value) => value.toString()));
       outRows.add(it);
     }
-    var csv = new CSV();
+    var csv = new Table();
     csv.append(firstRow);
     outRows.forEach(csv.append);
     return csv;
