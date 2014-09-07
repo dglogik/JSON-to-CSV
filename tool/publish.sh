@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Publishes an irc.dart release
+# Publishes a JSON-to-CSV release
 ./tool/build.dart publish
 VERSION=`grep 'version:' pubspec.yaml | sed 's/version: //'`
 echo Releasing ${VERSION}

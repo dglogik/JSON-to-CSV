@@ -4,7 +4,7 @@ author: Kenneth Endfinger <k.endfinger@dglogik.com>
 description: JSON to CSV Library
 homepage: https://github.com/dglogik/JSON-to-CSV
 environment:
-  sdk: '>=1.5.0'
+  sdk: '>=1.6.0'
 dev_dependencies:
   browser: '>=0.10.0+2 <0.11.0'
   hop: '>=0.31.0+1 <0.32.0'

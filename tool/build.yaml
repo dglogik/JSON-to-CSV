@@ -1,6 +1,6 @@
-analyzer.files: 
+analyzer.files:
   - lib/json2csv.dart
-check.tasks: 
+check.tasks:
   - analyze
   - test
 docs.output: out/docs
