@@ -1,4 +1,3 @@
 # json2csv
 
-JSON => CSV Converter for Dart
-
+JSON to CSV Converter for Dart
